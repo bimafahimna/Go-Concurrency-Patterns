@@ -5,9 +5,10 @@ import "sync"
 func main() {
 	var wg sync.WaitGroup
 
-	wg.Add(2)
-	go singleGeneratorImplementation(&wg)
-	go multipleGeneratorImplementation(&wg)
+	wg.Add(1)
+	// go SingleGeneratorImplementation(&wg)
+	// go MultipleGeneratorImplementation(&wg)
+	go FanOutFanInImplementation(&wg)
 
 	wg.Wait()
 }

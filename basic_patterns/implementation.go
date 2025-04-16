@@ -1,13 +1,15 @@
 package main
 
 import (
+	fanoutfanin "basic_patterns/fan_out_fan_in"
 	"basic_patterns/generator"
+
 	"fmt"
 	"sync"
 	"time"
 )
 
-func singleGeneratorImplementation(wg *sync.WaitGroup) {
+func SingleGeneratorImplementation(wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Println("Start of Single Generator Implementation")
 
@@ -19,7 +21,7 @@ func singleGeneratorImplementation(wg *sync.WaitGroup) {
 	fmt.Println("End of Single Generator Implementation")
 }
 
-func multipleGeneratorImplementation(wg *sync.WaitGroup) {
+func MultipleGeneratorImplementation(wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Println("Start of Multiple Generator Implementation")
 
@@ -48,4 +50,20 @@ func multipleGeneratorImplementation(wg *sync.WaitGroup) {
 	}
 
 	fmt.Println("End of Multiple Generator Implementation")
+}
+
+func FanOutFanInImplementation(wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Println("Start of Fan Out Fan In Implementation")
+
+	generateVal := generator.Generator(12)
+	channels := fanoutfanin.FanOut(generateVal, 4)
+
+	results := fanoutfanin.FanIn(channels...)
+
+	for v := range results {
+		fmt.Println(v)
+	}
+
+	fmt.Println("End of Fan Out Fan In Implementation")
 }
