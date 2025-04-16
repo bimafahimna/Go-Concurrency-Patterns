@@ -58,5 +58,5 @@ go run ./basic_patterns/main.go
 
 ```bash
 # Run benchmarks
-cd ./basic_patterns/<pattern-name>
+cd ./basic_patterns
 go test -bench=. -benchmem
