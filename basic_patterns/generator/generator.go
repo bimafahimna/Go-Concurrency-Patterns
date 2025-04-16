@@ -11,8 +11,8 @@ func Generator(n int) <-chan any {
 	out := make(chan any)
 
 	go func() {
+		// imitating expensive computation when do query from database
 		for i := 0; i < n; i++ {
-			// imitating expensive computation
 			time.Sleep(2 * time.Second)
 
 			if i%2 == 0 {
