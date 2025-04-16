@@ -1,6 +1,13 @@
 package main
 
+import "sync"
+
 func main() {
-	// singleGeneratorImplementation()
-	multipleGeneratorImplementation()
+	var wg sync.WaitGroup
+
+	wg.Add(2)
+	go singleGeneratorImplementation(&wg)
+	go multipleGeneratorImplementation(&wg)
+
+	wg.Wait()
 }
