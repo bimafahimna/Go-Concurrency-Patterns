@@ -1,34 +1,60 @@
 # 🚀 Go Concurrency Patterns
 
-A collection of practical **concurrency patterns** and implementations in Go (Golang). This repository serves as both a learning resource and a reference for common (and advanced) concurrency paradigms using goroutines, channels, and sync primitives.
-
-![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go) 
+[![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)](https://golang.org/dl/)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-## 📌 Why This Repo?
+A collection of production-ready concurrency patterns in Go, with benchmarks and real-world use cases.
 
-Concurrency is one of Go's strongest features, but writing **correct, efficient, and maintainable** concurrent code requires understanding key patterns. This repo documents my journey exploring these patterns with practical examples.
+## 📖 Table of Contents
+
+- [Features](#-features)
+- [Patterns](#-patterns-included)
+  - [Basic](#basic-patterns)
+  - [Advanced](#advanced-patterns)
+  - [Sync Primitives](#sync-primitives)
+- [Usage](#-usage)
+- [Benchmarks](#-benchmarks)
+- [Contributing](#-contributing)
+- [Resources](#-learning-resources)
+- [License](#-license)
+
+## 🌟 Features
+
+✔️ Production-grade implementations  
+✔️ Example use cases  
+✔️ Common pitfalls explained  
 
 ## 🧩 Patterns Included
 
 ### Basic Patterns
-- [Generator Pattern](/generator/) – Lazy data generation using channels
-- [Fan-Out/Fan-In](/fanout-fanin/) – Parallel processing with multiple workers
-- [Worker Pool](/workerpool/) – Fixed pool of goroutines for task processing
-- [Pipeline](/pipeline/) – Chained processing stages with channels
+| Pattern | Description | Example Use |
+|---------|------------|-------------|
+| [Generator](/generator/) | Lazy data generation | Streaming large datasets |
+| [Fan-Out/Fan-In](/fanout-fanin/) | Parallel processing | CPU-bound workloads |
+| [Worker Pool](/workerpool/) | Controlled goroutine pool | API rate limiting |
+| [Pipeline](/pipeline/) | Chained processing | ETL workflows |
 
 ### Advanced Patterns
-- [Pub/Sub](/pubsub/) – Publish-Subscribe model in Go
-- [Semaphore Pattern](/semaphore/) – Controlling concurrency with buffered channels
-- [Error Handling](/error-handling/) – Robust error propagation in concurrent workflows
-- [Context Cancellation](/context-cancellation/) – Graceful shutdown using `context.Context`
+| Pattern | Description | Concurrency Control |
+|---------|------------|---------------------|
+| [Pub/Sub](/pubsub/) | Event broadcasting | `select` with channels |
+| [Semaphore](/semaphore/) | Resource limiting | Buffered channels |
+| [Error Group](/errgroup/) | Error propagation | `sync/errgroup` |
+| [Circuit Breaker](/circuit-breaker/) | Fault tolerance | State machine |
 
 ### Sync Primitives
-- [Mutex Patterns](/sync-mutex/) – Safe shared state access
-- [WaitGroup](/sync-waitgroup/) – Coordinating goroutine completion
-- [Atomic Counters](/sync-atomic/) – Lock-free counters with `sync/atomic`
+- [Mutex](/sync-mutex/) - Shared state protection
+- [RWMutex](/sync-mutex/) - Optimized read-heavy cases
+- [WaitGroup](/sync-waitgroup/) - Goroutine synchronization
+- [Atomic](/sync-atomic/) - Lock-free operations
 
 ## 🛠️ Usage
 
-Each pattern includes:
-- A standalone **example implementation**
+```bash
+# Run any pattern
+go run ./patterns/<pattern-name>/main.go
+
+# Run benchmarks
+cd ./patterns/<pattern-name>
+go test -bench=. -benchmem
