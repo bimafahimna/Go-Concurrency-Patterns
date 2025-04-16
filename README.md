@@ -30,10 +30,10 @@ A collection of production-ready concurrency patterns in Go, with benchmarks and
 ### Basic Patterns
 | Pattern | Description | Example Use |
 |---------|------------|-------------|
-| [Generator](/generator/) | Lazy data generation | Streaming large datasets |
-| [Fan-Out/Fan-In](/fanout-fanin/) | Parallel processing | CPU-bound workloads |
-| [Worker Pool](/workerpool/) | Controlled goroutine pool | API rate limiting |
-| [Pipeline](/pipeline/) | Chained processing | ETL workflows |
+| [Generator](/basic_patterns/generator/) | Lazy data generation | Streaming large datasets |
+| [Fan-Out/Fan-In](/basic_patterns/fanout-fanin/) | Parallel processing | CPU-bound workloads |
+| [Worker Pool](/basic_patterns/workerpool/) | Controlled goroutine pool | API rate limiting |
+| [Pipeline](/basic_patterns/pipeline/) | Chained processing | ETL workflows |
 
 ### Advanced Patterns
 | Pattern | Description | Concurrency Control |
