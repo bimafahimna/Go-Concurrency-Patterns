@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-A collection of production-ready concurrency patterns in Go, with benchmarks and real-world use cases.
+A collection of production-ready concurrency patterns in Go and real-world use cases.
 
 ## 📖 Table of Contents
 
@@ -14,7 +14,6 @@ A collection of production-ready concurrency patterns in Go, with benchmarks and
   - [Advanced](#advanced-patterns)
   - [Sync Primitives](#sync-primitives)
 - [Usage](#-usage)
-- [Benchmarks](#-benchmarks)
 - [Contributing](#-contributing)
 - [Resources](#-learning-resources)
 - [License](#-license)
@@ -51,10 +50,13 @@ A collection of production-ready concurrency patterns in Go, with benchmarks and
 
 ## 🛠️ Usage
 
+you can try different implementation by changing the implementation's function call in main.go
 ```bash
 # Run any pattern
-go run ./patterns/<pattern-name>/main.go
+go run ./basic_patterns/main.go
+```
 
+```bash
 # Run benchmarks
-cd ./patterns/<pattern-name>
+cd ./basic_patterns/<pattern-name>
 go test -bench=. -benchmem
